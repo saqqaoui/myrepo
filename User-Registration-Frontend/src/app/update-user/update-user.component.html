@@ -1,0 +1,39 @@
+<div *ngIf="errorClient.errorStatusCode" class="alert alert-danger" role="alert">
+  <b>Error : </b><br/>
+  {{errorClient.errorMessage}}<br/>
+
+  <div *ngFor="let message of errorClient.errorMessages" >
+    <b>{{message}}</b>
+  </div>
+  <hr>
+  <b>Details : </b><br/>
+  {{errorClient.errorStatusCode}} {{errorClient.errorStatus}} <br/>
+  {{errorClient.globalMessage}}
+</div>
+
+<div *ngIf="successMessage" class="alert alert-success" role="alert">
+  <b>{{successMessage}}</b><br>
+  See details here : 
+  <button (click)="userDetails(user.id)" class="btn btn-transparent">
+    <i class="fa fa-search-plus"></i>
+    Details
+  </button>
+</div>
+
+<h3>Update User</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit(updateForm)" #updateForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+  
+</div>

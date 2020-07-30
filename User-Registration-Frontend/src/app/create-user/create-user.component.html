@@ -1,0 +1,47 @@
+<div *ngIf="errorClient.errorStatusCode" class="alert alert-danger" role="alert">
+  <b>Error : </b><br/>
+  {{errorClient.errorMessage}}<br/>
+  <div *ngFor="let message of errorClient.errorMessages" >
+    <b>{{message}}</b>
+  </div>
+  <hr>
+  <b>Details : </b><br/>
+  {{errorClient.errorStatusCode}} {{errorClient.errorStatus}} <br/>
+  {{errorClient.globalMessage}}
+</div>
+
+<div *ngIf="successMessage" class="alert alert-success" role="alert">
+  <b>{{successMessage}}</b><br>
+  See details here : 
+  <button (click)="userDetails(user.id)" class="btn btn-transparent">
+    <i class="fa fa-search-plus"></i>
+    Details
+  </button>
+</div>
+
+<h3>Create User</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit(inscriptionForm)" #inscriptionForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Gender</label>
+      <select [(ngModel)]="user.gender"  id="gender" style="display: inline-block" class="form-control" name="gender">
+            <option *ngFor="let key of genderOptions" [value]="key" [label]="gender[key]">
+
+            </option>
+    </select>
+  </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+

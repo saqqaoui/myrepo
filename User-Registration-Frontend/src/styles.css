@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.css';
+
+.navbar {
+    background-color: rgba(175, 14, 148, 0.596);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    height: 30px;
+    background-color: rgba(175, 14, 148, 0.596);
+    text-align: center;
+    color: white;
+}
